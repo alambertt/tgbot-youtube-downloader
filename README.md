@@ -1,2 +1,2 @@
 # tgbot-youtube-downloader
-Telegram bot to download Youtube videos &amp; audio
+This repository contains a Python-based Telegram bot designed to facilitate the downloading of audio from YouTube videos. Utilizing powerful libraries like Pytube, the bot offers a user-friendly Telegram interface for users to input YouTube video links and receive the corresponding audio files. Ideal for personal use, educational content, or just for enjoying music and podcasts offline, this bot simplifies audio extraction from YouTube, combining the accessibility of Telegram with the functionality of Python's YouTube interaction capabilities. It serves as a practical example of integrating Python scripting with Telegram bots and showcases efficient API usage for multimedia handling.
