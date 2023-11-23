@@ -7,7 +7,7 @@ from bot.utils.split_file import split_file
 from bot.utils.remove_file import remove_file
 from .tg_logger import *
 
-MAX_FILE_SIZE = 50 * 1024  # 50MB
+MAX_FILE_SIZE = 50 * 1024 *1024 # 50MB
 
 
 async def send_file(
@@ -20,7 +20,7 @@ async def send_file(
             for part_file in files:
                 await send_log(f"Uploading audio: {part_file}", context=context)
                 with open(part_file, "rb") as file_obj:
-                    await bot.send_document(chat_id=chat_id, document=file_obj)
+                    await bot.send_audio(chat_id=chat_id, audio=file_obj)
                     remove_file(part_file)
             return
         else:
@@ -29,7 +29,7 @@ async def send_file(
             )
             await send_log(f"Uploading audio: {file_path}", context=context)
             with open(file_path, "rb") as file_obj:
-                await bot.send_document(chat_id=chat_id, document=file_obj)
+                await bot.send_audio(chat_id=chat_id, audio=file_obj)
                 remove_file(file_path)
     except FileNotFoundError:
         msg = f"El archivo no fue encontrado: {file_path}"
