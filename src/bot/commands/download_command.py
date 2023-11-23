@@ -30,6 +30,8 @@ async def download(update: Update, context: ContextTypes.DEFAULT_TYPE):
         audio_file_path = download_audio(url)
 
         if audio_file_path:
+            name_file = audio_file_path.split("/")[-1]
+            await tg_logger.send_log(f"Uploading audio: {name_file}", context=context)
             await send_file(update.effective_chat.id, audio_file_path, context)
             remove_file(audio_file_path)
         else:

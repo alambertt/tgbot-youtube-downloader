@@ -22,8 +22,3 @@ def download_audio(url):
     except Exception as e:
         print("Error:", e)
         return None
-
-
-# if __name__ == "__main__":
-#     video_url = input("Enter YouTube URL: ")
-#     download_audio(video_url)
