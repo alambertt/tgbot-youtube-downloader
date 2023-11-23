@@ -1,8 +1,10 @@
 import logging
 from pydub import AudioSegment
 
+MAX_AUDIO_DURATION = 45 * 60 * 1000  # 45 minutes
 
-def split_file(file_path: str, duration_millis=6000) -> list[str]:
+
+def split_file(file_path: str, duration_millis=MAX_AUDIO_DURATION) -> list[str]:
     try:
         audio = AudioSegment.from_file(file_path)
         parts = []

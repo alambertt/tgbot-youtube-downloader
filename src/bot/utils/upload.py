@@ -8,7 +8,6 @@ from bot.utils.remove_file import remove_file
 from .tg_logger import *
 
 MAX_FILE_SIZE = 50 * 1024  # 50MB
-MAX_AUDIO_DURATION = 45 * 60 * 1000  # 45 minutes
 
 
 async def send_file(
