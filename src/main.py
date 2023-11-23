@@ -4,6 +4,9 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 from dotenv import load_dotenv
 
+from bot.commands.download_command import download
+from bot.utils import error_handler
+
 # Cargar variables de entorno del archivo .env
 load_dotenv()
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -26,6 +29,11 @@ if __name__ == "__main__":
     application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
     start_handler = CommandHandler("start", start)
+    download_handler = CommandHandler("download", download)
+
     application.add_handler(start_handler)
+    application.add_handler(download_handler)
+
+    application.add_error_handler(error_handler.handler)
 
     application.run_polling()
