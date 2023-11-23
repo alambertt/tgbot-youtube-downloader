@@ -16,12 +16,15 @@ async def send_file(
     bot = context.bot
     try:
         if not check_file_size(file_path):
-            files = split_file(file_path)
-            for part_file in files:
-                await send_log(f"Uploading audio: {part_file}", context=context)
-                with open(part_file, "rb") as file_obj:
-                    await bot.send_audio(chat_id=chat_id, audio=file_obj)
-                    remove_file(part_file)
+            await bot.send_message(chat_id=chat_id, text="The file is too large.")
+            remove_file(file_path)
+            #TODO split file and send it
+            # files = split_file(file_path)
+            # for part_file in files:
+            #     await send_log(f"Uploading audio: {part_file}", context=context)
+            #     with open(part_file, "rb") as file_obj:
+            #         await bot.send_audio(chat_id=chat_id, audio=file_obj)
+            #         remove_file(part_file)
             return
         else:
             await bot.send_chat_action(
