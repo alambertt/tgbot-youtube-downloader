@@ -4,6 +4,7 @@ import os
 
 def download_audio(url):
     try:
+        print(f'Start to download: {url}')
         yt = YouTube(url)
         audio = yt.streams.get_audio_only()
 
